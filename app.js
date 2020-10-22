@@ -5,27 +5,17 @@ let btnNum = document.getElementsByClassName('btn-num');
 let btnErase = document.getElementsByClassName('btn-erase');
 let btnEqual = document.getElementsByClassName('btn-equal');
 
-
-//Event listeners
-function addEvent(buttons, val) {
-    for(let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', (e) => {
-            input.value = input.value + e.target.value;;
-        })
-    }
-}
-
-btnErase[0].addEventListener('click', () => {
-    input.value = '';
-})
-
-btnEqual[0].addEventListener('click', () => {
-    input.value = eval(input.value)
-})
-
-addEvent(btn);
-
-addEvent(btnNum);
-
+//Functions
+$(document).ready(() => {
+    $('.btn, .btn-num').on('click', (e) => {
+        input.value = input.value + e.target.value;
+    });
+    $('.btn-erase').on('click', () =>{
+        input.value = '';
+    });
+    $('.btn-equal').on('click', (e) =>{
+        input.value = eval(input.value);
+    });
+});
 
 
